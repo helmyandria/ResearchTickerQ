@@ -16,7 +16,7 @@ namespace ResearchTickerQ
         [TickerFunction("Job1", "*/1 * * * *")]
         public void Job1()
         {
-            JobLocker.Run("Job1", () =>
+            JobLocker.Run(() =>
             {
                 _logger.LogInformation("Running Job 1...");
                 Thread.Sleep(65000);
@@ -27,7 +27,7 @@ namespace ResearchTickerQ
         [TickerFunction("Job2", "*/1 * * * *")]
         public void Job2()
         {
-            JobLocker.Run("Job2", () =>
+            JobLocker.Run(() =>
             {
                 _logger.LogInformation("Running Job 2...");
                 Thread.Sleep(65000);

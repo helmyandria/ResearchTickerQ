@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 
 namespace ResearchTickerQ
 {
@@ -6,7 +7,7 @@ namespace ResearchTickerQ
     {
         private static readonly ConcurrentDictionary<string, object> _locks = new();
 
-        public static void Run(string jobName, Action jobAction)
+        public static void Run(Action jobAction, [CallerMemberName] string jobName = "")
         {
             var lockObj = _locks.GetOrAdd(jobName, _ => new object());
 
